@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF AI Assistant</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="logo-section">
+        <div class="logo-box">🤖</div>
+        <div>
+          <h1>PDF AI</h1>
+          <p>Smart Document Assistant</p>
+        </div>
+      </div>
+
+      <button class="new-chat-btn" id="newChatBtn">
+        <i data-lucide="plus"></i>
+        New Chat
+      </button>
+
+      <div class="pdf-card">
+        <div class="pdf-top">
+          <div class="pdf-icon">📄</div>
+          <div>
+            <h3 id="pdfName">No PDF Uploaded</h3>
+            <p id="pdfStatus">Waiting for file...</p>
+          </div>
+        </div>
+
+        <label for="pdfUpload" class="upload-btn">Upload PDF</label>
+        <input type="file" id="pdfUpload" hidden accept=".pdf">
+
+        <button id="processBtn" class="process-btn">Process PDF</button>
+      </div>
+
+      <div class="history-section">
+
+  <div class="history-header">
+
+    <div class="history-title">
+      Recent Chats
+    </div>
+
+  </div>
+
+  <div
+    class="history-list"
+    id="historyList"
+  >
+
+  </div>
+
+</div>
+
+      <div class="sidebar-footer">Powered by LangChain + Groq</div>
+    </aside>
+
+    <main class="main-chat">
+      <header class="topbar">
+        <div>
+          <h2>AI PDF Assistant</h2>
+          <p>Upload a document and start chatting intelligently</p>
+        </div>
+        <div class="status-badge" id="statusBadge">Not Ready</div>
+      </header>
+
+      <section class="chat-area" id="chatArea">
+        <div class="welcome-container" id="welcomeContainer">
+          <div class="welcome-box">
+            <h2>Welcome to PDF AI</h2>
+            <p>
+              Upload a PDF and ask questions naturally.
+              Your AI assistant will analyze the document instantly.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="typing-area hidden" id="typingArea">
+        <div class="bot-avatar message-avatar">🤖</div>
+        <div class="typing-bubble">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <form class="chat-input-wrapper" id="chatForm">
+        <input
+          type="text"
+          id="questionInput"
+          placeholder="Ask anything from your PDF..."
+          autocomplete="off"
+          disabled
+        >
+        <button type="submit" id="sendBtn" disabled>
+          <i data-lucide="send"></i>
+        </button>
+      </form>
+    </main>
+  </div>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+    });
+  </script>
+
+  <script src="app.js"></script>
+</body>
+</html>
